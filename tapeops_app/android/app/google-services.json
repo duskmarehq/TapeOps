@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "12726871170",
+    "project_id": "tapeops-6b4bd",
+    "storage_bucket": "tapeops-6b4bd.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:12726871170:android:c5612d917f919b2ed9809b",
+        "android_client_info": {
+          "package_name": "com.example.tapeops_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqFBAaauSFLWDFdvX0S2BQ29uQybe12ak"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

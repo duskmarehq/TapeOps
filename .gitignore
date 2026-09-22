@@ -1,0 +1,22 @@
+# Python / uv
+backend/.venv/
+backend/__pycache__/
+backend/**/__pycache__/
+backend/.pytest_cache/
+backend/.ruff_cache/
+
+# Flutter
+tapeops-app/build/
+tapeops-app/.dart_tool/
+tapeops-app/.flutter-plugin-dependencies
+tapeops-app/**/firebase_options.dart
+
+# Variables de entorno y credenciales
+.env
+backend/.env
+**/firebase-service-account.json
+
+# Editor
+.vscode/*
+!.vscode/settings.json
+*.code-workspaceinfra/osrm/*.osm.pbf
