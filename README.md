@@ -1,5 +1,4 @@
-# Rubik y TapeOps
-
+# TapeOps
 
 Sistema de optimización de ruteo logístico B2B de última milla.
 
