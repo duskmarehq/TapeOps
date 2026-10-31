@@ -1,0 +1,35 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: rubik_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-rubik}
+      POSTGRES_USER: ${POSTGRES_USER:-rubik_admin}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./postgres-init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-rubik_admin} -d ${POSTGRES_DB:-rubik}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  osrm-routed:
+    image: osrm/osrm-backend
+    container_name: rubik_osrm
+    restart: unless-stopped
+    ports:
+      - "5001:5000"
+    volumes:
+      - ./osrm/data:/data
+    # requiere que /data/paraguay-latest.osrm exista, generado por el
+    # preprocesamiento manual descrito más abajo — este servicio no
+    # lo genera, solo lo sirve
+    command: osrm-routed --algorithm mld /data/paraguay-latest.osrm
+
+volumes:
+  postgres_data:

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rubik — Panel de Operaciones</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div id="login-screen" class="login-screen">
+  <form id="login-form" class="login-form">
+    <h1>Rubik</h1>
+    <p class="login-sub">Panel de operaciones</p>
+    <label>Email
+      <input type="email" id="login-email" required autocomplete="username">
+    </label>
+    <label>Contraseña
+      <input type="password" id="login-password" required autocomplete="current-password">
+    </label>
+    <button type="submit">Ingresar</button>
+    <p id="login-error" class="error-text" hidden></p>
+    <button type="button" class="link-cambio" id="btn-ir-registro">Crear cuenta de administrador</button>
+  </form>
+
+  <form id="registro-form" class="login-form" hidden>
+    <h1>Rubik</h1>
+    <p class="login-sub">Registro de administrador</p>
+    <label>Nombre
+      <input type="text" id="reg-nombre" required autocomplete="name">
+    </label>
+    <label>Email
+      <input type="email" id="reg-email" required autocomplete="username">
+    </label>
+    <label>Contraseña (mínimo 8 caracteres)
+      <input type="password" id="reg-password" required minlength="8" autocomplete="new-password">
+    </label>
+    <label>Código de invitación
+      <input type="password" id="reg-codigo" required autocomplete="off">
+    </label>
+    <button type="submit">Crear cuenta</button>
+    <p id="registro-error" class="error-text" hidden></p>
+    <button type="button" class="link-cambio" id="btn-ir-login">Ya tengo cuenta</button>
+  </form>
+</div>
+
+<div id="app" class="app" hidden>
+  <header class="topbar">
+    <div class="topbar-brand">Rubik</div>
+    <div class="topbar-status">
+      <span id="conexion-indicador" class="indicador indicador--off"></span>
+      <span id="conexion-texto">Conectando…</span>
+    </div>
+    <div class="topbar-user">
+      <span id="usuario-email"></span>
+      <button id="btn-logout" class="btn-text" type="button">Salir</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="sidebar">
+      <button class="nav-item is-active" data-seccion="pedidos" type="button">Pedidos</button>
+      <button class="nav-item" data-seccion="vehiculos" type="button">Vehículos</button>
+      <button class="nav-item" data-seccion="clientes" type="button">Clientes</button>
+      <button class="nav-item" data-seccion="depositos" type="button">Depósito</button>
+      <div class="sidebar-divider"></div>
+      <button id="btn-optimizar" class="btn-accent" type="button">Optimizar rutas</button>
+    </nav>
+
+    <section class="panel" id="panel-contenido"></section>
+
+    <main class="mapa-contenedor">
+      <div id="mapa"></div>
+      <div id="notificaciones" class="notificaciones" aria-live="polite"></div>
+    </main>
+  </div>
+</div>
+
+<div id="modal-optimizar" class="modal" hidden>
+  <div class="modal-caja">
+    <h2>Optimizar rutas</h2>
+    <label>Fecha
+      <input type="date" id="opt-fecha" required>
+    </label>
+    <div id="opt-asignaciones"></div>
+    <button id="btn-agregar-asignacion" class="btn-text" type="button">+ agregar vehículo</button>
+    <div class="modal-acciones">
+      <button id="btn-cancelar-optimizar" class="btn-text" type="button">Cancelar</button>
+      <button id="btn-confirmar-optimizar" class="btn-accent" type="button">Ejecutar</button>
+    </div>
+    <p id="optimizar-error" class="error-text" hidden></p>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
