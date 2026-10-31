@@ -1,5 +1,6 @@
 # Rubik y TapeOps
 
+
 Sistema de optimización de ruteo logístico B2B de última milla.
 
 - **Rubik** (`rubik-web/`): dashboard web del administrador. Carga pedidos, planifica rutas y monitorea la operación sobre un mapa.
