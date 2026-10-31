@@ -105,8 +105,8 @@ Todos los comandos parten de la raíz del repositorio.
 ### 2.1 Clonar
 
 ```bash
-git clone URL_DEL_REPOSITORIO
-cd CARPETA_DEL_REPOSITORIO
+git clone https://github.com/duskmarehq/TapeOps.git
+cd TapeOps
 ```
 
 ### 2.2 Infraestructura (PostgreSQL y OSRM)
